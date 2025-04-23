@@ -12,6 +12,11 @@ public class WalkerAgent : Agent
     private float[] initialAngles;
     private float previousDistance;
 
+    void FixedUpdate()
+    {
+        RequestDecision();
+    }
+
     public override void Initialize()
     {
         agentRb = GetComponent<Rigidbody>();
@@ -39,12 +44,18 @@ public class WalkerAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.localPosition);
-        sensor.AddObservation(Target.localPosition);
-        sensor.AddObservation(agentRb.linearVelocity);
+        AddSafeObs(sensor, transform.localPosition.x);
+        AddSafeObs(sensor, transform.localPosition.y);
+        AddSafeObs(sensor, transform.localPosition.z);
+        AddSafeObs(sensor, Target.localPosition.x);
+        AddSafeObs(sensor, Target.localPosition.y);
+        AddSafeObs(sensor, Target.localPosition.z);
+        AddSafeObs(sensor, agentRb.linearVelocity.x);
+        AddSafeObs(sensor, agentRb.linearVelocity.y);
+        AddSafeObs(sensor, agentRb.linearVelocity.z);
         for (int i = 0; i < joints.Length; i++)
         {
-            sensor.AddObservation(joints[i].angle / 180f);
+            AddSafeObs(sensor, joints[i].angle / 180f);
         }
     }
 
@@ -53,22 +64,19 @@ public class WalkerAgent : Agent
         var cont = actions.ContinuousActions;
         for (int i = 0; i < joints.Length; i++)
         {
-            JointMotor motor = joints[i].motor;
+            var motor = joints[i].motor;
             motor.force = 100f;
             motor.targetVelocity = cont[i] * 500f;
             motor.freeSpin = false;
             joints[i].motor = motor;
             joints[i].useMotor = true;
         }
-
         float currentDist = Vector3.Distance(transform.localPosition, Target.localPosition);
         float progress = previousDistance - currentDist;
         SetReward(progress * 0.1f);
         previousDistance = currentDist;
-
         float uprightDot = Vector3.Dot(transform.up, Vector3.up);
         AddReward((uprightDot - 0.5f) * 0.01f);
-
         if (currentDist < 1f)
         {
             SetReward(1f);
@@ -83,20 +91,22 @@ public class WalkerAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        var keyboard = Keyboard.current;
         var cont = actionsOut.ContinuousActions;
-        cont[0] = keyboard.qKey.isPressed ?  1f : keyboard.aKey.isPressed ? -1f : 0f;
-        cont[1] = keyboard.wKey.isPressed ?  1f : keyboard.sKey.isPressed ? -1f : 0f;
-        cont[2] = keyboard.eKey.isPressed ?  1f : keyboard.dKey.isPressed ? -1f : 0f;
-        cont[3] = keyboard.rKey.isPressed ?  1f : keyboard.fKey.isPressed ? -1f : 0f;
-        cont[4] = keyboard.tKey.isPressed ?  1f : keyboard.gKey.isPressed ? -1f : 0f;
-        cont[5] = keyboard.yKey.isPressed ?  1f : keyboard.hKey.isPressed ? -1f : 0f;
-        cont[6] = keyboard.uKey.isPressed ?  1f : keyboard.jKey.isPressed ? -1f : 0f;
-        cont[7] = keyboard.iKey.isPressed ?  1f : keyboard.kKey.isPressed ? -1f : 0f;
+        var keyboard = Keyboard.current;
+        cont[0] = keyboard.qKey.isPressed ? 1f : keyboard.aKey.isPressed ? -1f : 0f;
+        cont[1] = keyboard.wKey.isPressed ? 1f : keyboard.sKey.isPressed ? -1f : 0f;
+        cont[2] = keyboard.eKey.isPressed ? 1f : keyboard.dKey.isPressed ? -1f : 0f;
+        cont[3] = keyboard.rKey.isPressed ? 1f : keyboard.fKey.isPressed ? -1f : 0f;
+        cont[4] = keyboard.tKey.isPressed ? 1f : keyboard.gKey.isPressed ? -1f : 0f;
+        cont[5] = keyboard.yKey.isPressed ? 1f : keyboard.hKey.isPressed ? -1f : 0f;
+        cont[6] = keyboard.uKey.isPressed ? 1f : keyboard.jKey.isPressed ? -1f : 0f;
+        cont[7] = keyboard.iKey.isPressed ? 1f : keyboard.kKey.isPressed ? -1f : 0f;
     }
 
-    void FixedUpdate()
+    private void AddSafeObs(VectorSensor sensor, float v)
     {
-        RequestDecision();
+        if (float.IsNaN(v) || float.IsInfinity(v)) v = 0f;
+        v = Mathf.Clamp(v, -5f, 5f);
+        sensor.AddObservation(v);
     }
 }
