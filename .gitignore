@@ -70,3 +70,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/ML-Agents/Timers/Main_timers.json
+.vscode/extensions.json
+Assets/ML-Agents/Timers/Main_timers.json
+.vscode/settings.json
+.vscode/launch.json
