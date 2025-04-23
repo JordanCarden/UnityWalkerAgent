@@ -1,5 +1,5 @@
 # Unity Walker Agent
-A Unity ML-Agents project teaching a multi-joint “frog” Agent to walk toward a target.
+A Unity ML-Agents project teaching a multi-joint Agent to walk toward a target.
 
 ## Prerequisites
 Unity 2021.3 (or later) with ML-Agents package installed
