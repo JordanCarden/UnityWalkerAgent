@@ -11,7 +11,7 @@ public class WalkerAgent : Agent
     private HingeJoint[] joints;
     private float[] initialAngles;
     private float previousDistance;
-    private const float successDistance = 2f;
+    private const float successDistance = 1.5f;
 
     void FixedUpdate()
     {
@@ -32,6 +32,7 @@ public class WalkerAgent : Agent
     public override void OnEpisodeBegin()
     {
         transform.localPosition = new Vector3(2f, 2.1f, 0f);
+        transform.localRotation = Quaternion.identity;
         agentRb.linearVelocity = Vector3.zero;
         agentRb.angularVelocity = Vector3.zero;
         for (int i = 0; i < joints.Length; i++)
@@ -73,13 +74,11 @@ public class WalkerAgent : Agent
         }
         float currentDist = Vector3.Distance(transform.localPosition, Target.localPosition);
         float progress = previousDistance - currentDist;
-        SetReward(progress * 0.1f);
+        SetReward(progress);
         previousDistance = currentDist;
-        float uprightDot = Vector3.Dot(transform.up, Vector3.up);
-        AddReward((uprightDot - 0.5f) * 0.01f);
         if (currentDist < successDistance)
         {
-            SetReward(1f);
+            SetReward(100f);
             EndEpisode();
         }
         else if (transform.localPosition.y < 0f)

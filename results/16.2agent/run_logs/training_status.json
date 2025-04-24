@@ -1,0 +1,65 @@
+{
+    "WalkerAgent": {
+        "checkpoints": [
+            {
+                "steps": 2999146,
+                "file_path": "results/16.2agent/WalkerAgent/WalkerAgent-2999146.onnx",
+                "reward": 0.37680864334106445,
+                "creation_time": 1745519862.2151136,
+                "auxillary_file_paths": [
+                    "results/16.2agent/WalkerAgent/WalkerAgent-2999146.pt"
+                ]
+            },
+            {
+                "steps": 3499601,
+                "file_path": "results/16.2agent/WalkerAgent/WalkerAgent-3499601.onnx",
+                "reward": null,
+                "creation_time": 1745520026.420058,
+                "auxillary_file_paths": [
+                    "results/16.2agent/WalkerAgent/WalkerAgent-3499601.pt"
+                ]
+            },
+            {
+                "steps": 3999367,
+                "file_path": "results/16.2agent/WalkerAgent/WalkerAgent-3999367.onnx",
+                "reward": null,
+                "creation_time": 1745520190.3153446,
+                "auxillary_file_paths": [
+                    "results/16.2agent/WalkerAgent/WalkerAgent-3999367.pt"
+                ]
+            },
+            {
+                "steps": 4499256,
+                "file_path": "results/16.2agent/WalkerAgent/WalkerAgent-4499256.onnx",
+                "reward": null,
+                "creation_time": 1745520353.942203,
+                "auxillary_file_paths": [
+                    "results/16.2agent/WalkerAgent/WalkerAgent-4499256.pt"
+                ]
+            },
+            {
+                "steps": 4800256,
+                "file_path": "results/16.2agent/WalkerAgent/WalkerAgent-4800256.onnx",
+                "reward": null,
+                "creation_time": 1745520451.4367898,
+                "auxillary_file_paths": [
+                    "results/16.2agent/WalkerAgent/WalkerAgent-4800256.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4800256,
+            "file_path": "results/16.2agent/WalkerAgent.onnx",
+            "reward": null,
+            "creation_time": 1745520451.4367898,
+            "auxillary_file_paths": [
+                "results/16.2agent/WalkerAgent/WalkerAgent-4800256.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.6.0+cu124"
+    }
+}
