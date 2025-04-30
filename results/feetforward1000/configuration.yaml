@@ -1,0 +1,868 @@
+default_settings: null
+behaviors:
+  WalkerAgent:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 256
+      buffer_size: 8192
+      learning_rate: 0.0001
+      beta: 0.005
+      epsilon: 0.2
+      lambd: 0.95
+      num_epoch: 3
+      shared_critic: false
+      learning_rate_schedule: linear
+      beta_schedule: linear
+      epsilon_schedule: linear
+    checkpoint_interval: 3000000
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+      vis_encode_type: simple
+      memory: null
+      goal_conditioning_type: hyper
+      deterministic: false
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+        network_settings:
+          normalize: false
+          hidden_units: 128
+          num_layers: 2
+          vis_encode_type: simple
+          memory: null
+          goal_conditioning_type: hyper
+          deterministic: false
+    init_path: results/feetforward100/WalkerAgent/checkpoint.pt
+    keep_checkpoints: 5
+    even_checkpoints: false
+    max_steps: 48000000
+    time_horizon: 1000
+    summary_freq: 160000
+    threaded: false
+    self_play: null
+    behavioral_cloning: null
+env_settings:
+  env_path: null
+  env_args: null
+  base_port: 5005
+  num_envs: 1
+  num_areas: 1
+  timeout_wait: 60
+  seed: -1
+  max_lifetime_restarts: 10
+  restarts_rate_limit_n: 1
+  restarts_rate_limit_period_s: 60
+engine_settings:
+  width: 84
+  height: 84
+  quality_level: 5
+  time_scale: 20
+  target_frame_rate: -1
+  capture_frame_rate: 60
+  no_graphics: false
+  no_graphics_monitor: false
+environment_parameters:
+  target_shift:
+    curriculum:
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6534
+          value: 0
+      name: lesson-0
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6535
+          value: -0.1
+      name: lesson-1
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6536
+          value: -0.2
+      name: lesson-2
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6537
+          value: -0.3
+      name: lesson-3
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6538
+          value: -0.4
+      name: lesson-4
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6539
+          value: -0.5
+      name: lesson-5
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6540
+          value: -0.6
+      name: lesson-6
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6541
+          value: -0.7
+      name: lesson-7
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6542
+          value: -0.8
+      name: lesson-8
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6543
+          value: -0.9
+      name: lesson-9
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6544
+          value: -1.0
+      name: lesson-10
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6545
+          value: -1.1
+      name: lesson-11
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6546
+          value: -1.2
+      name: lesson-12
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6547
+          value: -1.3
+      name: lesson-13
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6548
+          value: -1.4
+      name: lesson-14
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6549
+          value: -1.5
+      name: lesson-15
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6550
+          value: -1.6
+      name: lesson-16
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6551
+          value: -1.7
+      name: lesson-17
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6552
+          value: -1.8
+      name: lesson-18
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6553
+          value: -1.9
+      name: lesson-19
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6554
+          value: -2.0
+      name: lesson-20
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6555
+          value: -2.1
+      name: lesson-21
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6556
+          value: -2.2
+      name: lesson-22
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6557
+          value: -2.3
+      name: lesson-23
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6558
+          value: -2.4
+      name: lesson-24
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6559
+          value: -2.5
+      name: lesson-25
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6560
+          value: -2.6
+      name: lesson-26
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6561
+          value: -2.7
+      name: lesson-27
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6562
+          value: -2.8
+      name: lesson-28
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6563
+          value: -2.9
+      name: lesson-29
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6564
+          value: -3.0
+      name: lesson-30
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6565
+          value: -3.1
+      name: lesson-31
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6566
+          value: -3.2
+      name: lesson-32
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6567
+          value: -3.3
+      name: lesson-33
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6568
+          value: -3.4
+      name: lesson-34
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6569
+          value: -3.5
+      name: lesson-35
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6570
+          value: -3.6
+      name: lesson-36
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6571
+          value: -3.7
+      name: lesson-37
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6572
+          value: -3.8
+      name: lesson-38
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6573
+          value: -3.9
+      name: lesson-39
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6574
+          value: -4.0
+      name: lesson-40
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6575
+          value: -4.1
+      name: lesson-41
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6576
+          value: -4.2
+      name: lesson-42
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6577
+          value: -4.3
+      name: lesson-43
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6578
+          value: -4.4
+      name: lesson-44
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6579
+          value: -4.5
+      name: lesson-45
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6580
+          value: -4.6
+      name: lesson-46
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6581
+          value: -4.7
+      name: lesson-47
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6582
+          value: -4.8
+      name: lesson-48
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6583
+          value: -4.9
+      name: lesson-49
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6584
+          value: -5.0
+      name: lesson-50
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6585
+          value: -5.1
+      name: lesson-51
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6586
+          value: -5.2
+      name: lesson-52
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6587
+          value: -5.3
+      name: lesson-53
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6588
+          value: -5.4
+      name: lesson-54
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6589
+          value: -5.5
+      name: lesson-55
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6590
+          value: -5.6
+      name: lesson-56
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6591
+          value: -5.7
+      name: lesson-57
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6592
+          value: -5.8
+      name: lesson-58
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6593
+          value: -5.9
+      name: lesson-59
+      completion_criteria:
+        behavior: WalkerAgent
+        measure: reward
+        min_lesson_length: 2048
+        signal_smoothing: true
+        threshold: 97.5
+        require_reset: false
+    - value:
+        sampler_type: constant
+        sampler_parameters:
+          seed: 6594
+          value: -6
+      name: lesson-60
+      completion_criteria: null
+checkpoint_settings:
+  run_id: feetforward1000
+  initialize_from: feetforward100
+  load_model: false
+  resume: false
+  force: true
+  train_model: false
+  inference: false
+  results_dir: results
+torch_settings:
+  device: null
+debug: false

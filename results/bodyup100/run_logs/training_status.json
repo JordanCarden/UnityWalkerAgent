@@ -1,0 +1,68 @@
+{
+    "target_shift": {
+        "lesson_num": 3
+    },
+    "WalkerAgent": {
+        "checkpoints": [
+            {
+                "steps": 2999005,
+                "file_path": "results/bodyup100/WalkerAgent/WalkerAgent-2999005.onnx",
+                "reward": 102.72654724121094,
+                "creation_time": 1745953615.6306303,
+                "auxillary_file_paths": [
+                    "results/bodyup100/WalkerAgent/WalkerAgent-2999005.pt"
+                ]
+            },
+            {
+                "steps": 5999830,
+                "file_path": "results/bodyup100/WalkerAgent/WalkerAgent-5999830.onnx",
+                "reward": 103.12230682373047,
+                "creation_time": 1745954385.3811927,
+                "auxillary_file_paths": [
+                    "results/bodyup100/WalkerAgent/WalkerAgent-5999830.pt"
+                ]
+            },
+            {
+                "steps": 8999959,
+                "file_path": "results/bodyup100/WalkerAgent/WalkerAgent-8999959.onnx",
+                "reward": 99.69469824704257,
+                "creation_time": 1745955148.040815,
+                "auxillary_file_paths": [
+                    "results/bodyup100/WalkerAgent/WalkerAgent-8999959.pt"
+                ]
+            },
+            {
+                "steps": 11999170,
+                "file_path": "results/bodyup100/WalkerAgent/WalkerAgent-11999170.onnx",
+                "reward": 103.11808013916016,
+                "creation_time": 1745955914.659418,
+                "auxillary_file_paths": [
+                    "results/bodyup100/WalkerAgent/WalkerAgent-11999170.pt"
+                ]
+            },
+            {
+                "steps": 12000170,
+                "file_path": "results/bodyup100/WalkerAgent/WalkerAgent-12000170.onnx",
+                "reward": 103.11808013916016,
+                "creation_time": 1745955914.6898518,
+                "auxillary_file_paths": [
+                    "results/bodyup100/WalkerAgent/WalkerAgent-12000170.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 12000170,
+            "file_path": "results/bodyup100/WalkerAgent.onnx",
+            "reward": 103.11808013916016,
+            "creation_time": 1745955914.6898518,
+            "auxillary_file_paths": [
+                "results/bodyup100/WalkerAgent/WalkerAgent-12000170.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.6.0+cu124"
+    }
+}

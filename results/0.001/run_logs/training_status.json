@@ -1,0 +1,29 @@
+{
+    "WalkerAgent": {
+        "checkpoints": [
+            {
+                "steps": 80000,
+                "file_path": "results/0.001/WalkerAgent/WalkerAgent-80000.onnx",
+                "reward": null,
+                "creation_time": 1745612907.4664526,
+                "auxillary_file_paths": [
+                    "results/0.001/WalkerAgent/WalkerAgent-80000.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 80000,
+            "file_path": "results/0.001/WalkerAgent.onnx",
+            "reward": null,
+            "creation_time": 1745612907.4664526,
+            "auxillary_file_paths": [
+                "results/0.001/WalkerAgent/WalkerAgent-80000.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.6.0+cu124"
+    }
+}

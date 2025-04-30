@@ -1,0 +1,65 @@
+{
+    "WalkerAgent": {
+        "checkpoints": [
+            {
+                "steps": 2999330,
+                "file_path": "results/scale_buffer_batch/WalkerAgent/WalkerAgent-2999330.onnx",
+                "reward": 50.80537539720535,
+                "creation_time": 1745616021.9437435,
+                "auxillary_file_paths": [
+                    "results/scale_buffer_batch/WalkerAgent/WalkerAgent-2999330.pt"
+                ]
+            },
+            {
+                "steps": 3499810,
+                "file_path": "results/scale_buffer_batch/WalkerAgent/WalkerAgent-3499810.onnx",
+                "reward": 102.49918413162231,
+                "creation_time": 1745616145.3926835,
+                "auxillary_file_paths": [
+                    "results/scale_buffer_batch/WalkerAgent/WalkerAgent-3499810.pt"
+                ]
+            },
+            {
+                "steps": 3999631,
+                "file_path": "results/scale_buffer_batch/WalkerAgent/WalkerAgent-3999631.onnx",
+                "reward": 102.49147491455078,
+                "creation_time": 1745616269.8260143,
+                "auxillary_file_paths": [
+                    "results/scale_buffer_batch/WalkerAgent/WalkerAgent-3999631.pt"
+                ]
+            },
+            {
+                "steps": 4499907,
+                "file_path": "results/scale_buffer_batch/WalkerAgent/WalkerAgent-4499907.onnx",
+                "reward": 102.49179077148438,
+                "creation_time": 1745616395.1609159,
+                "auxillary_file_paths": [
+                    "results/scale_buffer_batch/WalkerAgent/WalkerAgent-4499907.pt"
+                ]
+            },
+            {
+                "steps": 4800049,
+                "file_path": "results/scale_buffer_batch/WalkerAgent/WalkerAgent-4800049.onnx",
+                "reward": 102.48805046081543,
+                "creation_time": 1745616471.1582227,
+                "auxillary_file_paths": [
+                    "results/scale_buffer_batch/WalkerAgent/WalkerAgent-4800049.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4800049,
+            "file_path": "results/scale_buffer_batch/WalkerAgent.onnx",
+            "reward": 102.48805046081543,
+            "creation_time": 1745616471.1582227,
+            "auxillary_file_paths": [
+                "results/scale_buffer_batch/WalkerAgent/WalkerAgent-4800049.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.6.0+cu124"
+    }
+}

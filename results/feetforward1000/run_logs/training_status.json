@@ -1,0 +1,68 @@
+{
+    "target_shift": {
+        "lesson_num": 10
+    },
+    "WalkerAgent": {
+        "checkpoints": [
+            {
+                "steps": 38999995,
+                "file_path": "results/feetforward1000/WalkerAgent/WalkerAgent-38999995.onnx",
+                "reward": 100.4183349609375,
+                "creation_time": 1745971599.4512756,
+                "auxillary_file_paths": [
+                    "results/feetforward1000/WalkerAgent/WalkerAgent-38999995.pt"
+                ]
+            },
+            {
+                "steps": 41999937,
+                "file_path": "results/feetforward1000/WalkerAgent/WalkerAgent-41999937.onnx",
+                "reward": 99.48001352945964,
+                "creation_time": 1745972368.693846,
+                "auxillary_file_paths": [
+                    "results/feetforward1000/WalkerAgent/WalkerAgent-41999937.pt"
+                ]
+            },
+            {
+                "steps": 44999705,
+                "file_path": "results/feetforward1000/WalkerAgent/WalkerAgent-44999705.onnx",
+                "reward": 86.42938510576884,
+                "creation_time": 1745973138.8965724,
+                "auxillary_file_paths": [
+                    "results/feetforward1000/WalkerAgent/WalkerAgent-44999705.pt"
+                ]
+            },
+            {
+                "steps": 47999484,
+                "file_path": "results/feetforward1000/WalkerAgent/WalkerAgent-47999484.onnx",
+                "reward": 89.43961652119954,
+                "creation_time": 1745973907.5287237,
+                "auxillary_file_paths": [
+                    "results/feetforward1000/WalkerAgent/WalkerAgent-47999484.pt"
+                ]
+            },
+            {
+                "steps": 48000484,
+                "file_path": "results/feetforward1000/WalkerAgent/WalkerAgent-48000484.onnx",
+                "reward": 89.43961652119954,
+                "creation_time": 1745973907.5585275,
+                "auxillary_file_paths": [
+                    "results/feetforward1000/WalkerAgent/WalkerAgent-48000484.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 48000484,
+            "file_path": "results/feetforward1000/WalkerAgent.onnx",
+            "reward": 89.43961652119954,
+            "creation_time": 1745973907.5585275,
+            "auxillary_file_paths": [
+                "results/feetforward1000/WalkerAgent/WalkerAgent-48000484.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.6.0+cu124"
+    }
+}
