@@ -36,9 +36,9 @@ mlagents-learn config.yaml --run-id=run_name --force
 ```
 In Unity, press Play
 
-## Or Load Our Model
-First open the project in the Unity Editor and locate the Assets/Models folder in the Project window. 
-Find the .onnx file you wish to apply (for example, 16agent.onnx or 4agent.onnx). 
-Click on the Body GameObject in the Hierarchy. 
-In the Inspector, drag the .onnx asset into the Model field of the Behavior Parameters component. 
+## Or Load Our Models
+First open the project in the Unity Editor and locate the Assets/Models folder in the Project window.     
+Find the .onnx file you wish to apply (for example, 16agent.onnx or 4agent.onnx).      
+Click on the Body GameObject in the Hierarchy.      
+In the Inspector, drag the .onnx asset into the Model field of the Behavior Parameters component.      
 Enter Play mode. The agent will immediately begin using the selected pre-trained network.
